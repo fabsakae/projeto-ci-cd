@@ -86,10 +86,12 @@ Para garantir a segurança das dependências de terceiros utilizadas no projeto,
 
 Com a adição intencional de uma dependência vulnerável (`lodash@4.17.15`), o Dependabot identificou com sucesso `3 alertas de segurança` relacionados a esta biblioteca. Após a mesclagem dos Pull Requests gerados pelo Dependabot, os alertas foram resolvidos e a aba `Dependabot alerts` no GitHub está agora com `0 alertas abertos`.
 
+![closed](https://github.com/user-attachments/assets/e13f2e53-ad96-4416-8534-a64f03a45458)
+
 Isso demonstra a capacidade do pipeline em identificar e auxiliar na remediação automatizada de vulnerabilidades em dependências.
 
 O Dependabot alerts e Code scanning nas configurações de segurança do repositório, instruiu o GitHub a começar a escanear e a reportar vulnerabilidades por e-mail.
-![alerta-dependabot](https://github.com/user-attachments/assets/3b4ea29b-8aed-4674-9a9a-206d64f877ca)
 
+![alerta-dependabot](https://github.com/user-attachments/assets/3b4ea29b-8aed-4674-9a9a-206d64f877ca)
 
 ---
