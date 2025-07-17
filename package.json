@@ -1,0 +1,15 @@
+{
+  "name": "projeto-ci-cd-js",
+  "version": "1.0.0",
+  "description": "Um projeto simples para aprender CI/CD e DevSecOps",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "lodash": "4.17.15"
+  },
+  "devDependencies": {},
+  "author": "Seu Nome",
+  "license": "MIT"
+}
