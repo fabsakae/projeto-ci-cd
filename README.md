@@ -68,3 +68,25 @@ Você pode disparar o workflow `Meu Primeiro Workflow com GitHub Actions e SEGUR
 4.  Selecione a branch `main` e clique em `Run workflow`.
 
 ---
+## 6. Análise de Composição de Software (SCA) com Dependabot
+
+Para garantir a segurança das dependências de terceiros utilizadas no projeto, integramos o **Dependabot**, uma ferramenta nativa do GitHub para **Análise de Composição de Software (SCA)**.
+
+### Como funciona:
+
+* O Dependabot monitora o arquivo `package.json` (e outros arquivos de manifesto, se existissem) em busca de dependências do projeto.
+* Automaticamente, ele verifica se há vulnerabilidades conhecidas em qualquer versão das dependências listadas.
+* Ao detectar uma vulnerabilidade (como as encontradas no pacote `lodash` na versão `4.17.15`), o Dependabot gera um **alerta de segurança** na aba `Security` do repositório.
+* Além disso, ele cria **Pull Requests (PRs)** automaticamente, propondo a atualização das dependências para versões seguras que corrigem as vulnerabilidades.
+* A integração com o GitHub Actions garante que, ao mesclar esses PRs, o código seja reanalisado (CodeQL) e testado, mantendo a integridade do projeto.
+
+### Resultados:
+
+Com a adição intencional de uma dependência vulnerável (`lodash@4.17.15`), o Dependabot identificou com sucesso `3 alertas de segurança` relacionados a esta biblioteca. Após a mesclagem dos Pull Requests gerados pelo Dependabot, os alertas foram resolvidos e a aba `Dependabot alerts` no GitHub está agora com `0 alertas abertos`.
+
+Isso demonstra a capacidade do pipeline em identificar e auxiliar na remediação automatizada de vulnerabilidades em dependências.
+
+O Dependabot alerts e Code scanning nas configurações de segurança do repositório, instruiu o GitHub a começar a escanear e a reportar vulnerabilidades.
+
+
+---
