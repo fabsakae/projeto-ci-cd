@@ -87,6 +87,7 @@ Com a adição intencional de uma dependência vulnerável (`lodash@4.17.15`), o
 Isso demonstra a capacidade do pipeline em identificar e auxiliar na remediação automatizada de vulnerabilidades em dependências.
 
 O Dependabot alerts e Code scanning nas configurações de segurança do repositório, instruiu o GitHub a começar a escanear e a reportar vulnerabilidades.
+![alerta-dependabot](https://github.com/user-attachments/assets/3b4ea29b-8aed-4674-9a9a-206d64f877ca)
 
 
 ---
