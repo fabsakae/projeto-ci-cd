@@ -1,0 +1,19 @@
+name: Meu Primeiro Workflow com GitHub Actions
+
+# Define quando o workflow será executado
+on:
+  push: # Quando houver um 'push' para o repositório
+    branches:
+      - main # E esse 'push' for na branch 'main'
+  pull_request: # Quando houver um 'pull request'
+    branches:
+      - main # Para a branch 'main'
+
+# Define as tarefas (jobs) que o workflow irá executar
+jobs:
+  hello-world-job: # Nome do seu job
+    runs-on: ubuntu-latest # O sistema operacional onde o job vai rodar
+
+    steps: # Os passos a serem executados dentro do job
+      - name: Dizer Olá ao DevSecOps # Nome descritivo do passo
+        run: echo "Olá, DevSecOps! Meu primeiro workflow está funcionando!" # Comando a ser executado
