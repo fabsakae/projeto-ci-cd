@@ -1,4 +1,4 @@
-name: Meu Primeiro Workflow com GitHub Actions
+name: Meu Primeiro Workflow com GitHub Actions e Segurança !
 
 # Define quando o workflow será executado
 on:
@@ -8,6 +8,7 @@ on:
   pull_request: # Quando houver um 'pull request'
     branches:
       - main # Para a branch 'main'
+  workflow_dispatch:
 
 # Define as tarefas (jobs) que o workflow irá executar
 jobs:
@@ -17,3 +18,40 @@ jobs:
     steps: # Os passos a serem executados dentro do job
       - name: Dizer Olá ao DevSecOps # Nome descritivo do passo
         run: echo "Olá novamente, DevSecOps! Meu primeiro workflow está funcionando!" # Comando a ser executado
+
+ # NOVO JOB: Análise de Segurança com CodeQL
+  analyze: # Nome do novo job de análise
+    name: CodeQL-Scan # Nome mais amigável que aparecerá no GitHub Actions
+    runs-on: ubuntu-latest # O sistema operacional onde o job vai rodar (pode ser "ubuntu-latest", "windows-latest", "macos-latest")
+
+    # Define quais linguagens de programação serão analisadas.
+    # Se o projeto tivesse código Python, JavaScript, Java etc., listaria aqui.
+  
+    # Se tiver algum arquivo .js, .py, etc., pode deixar assim.
+    # O projeto é APENAS o README.md e o .yml, o CodeQL ainda vai rodar,
+    # mas pode não encontrar muito código para analisar.
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'javascript' ] 
+                                   
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+        with:
+          # O CodeQL precisa do histórico completo do Git para algumas análises
+          fetch-depth: 0
+
+      - name: Inicializar CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: Autofazer build do código # Para linguagens compiladas, esta action tenta compilá-las
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Realizar análise CodeQL
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{matrix.language}}" # Categoria para a análise no GitHub Security
