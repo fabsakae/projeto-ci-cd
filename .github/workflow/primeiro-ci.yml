@@ -16,4 +16,4 @@ jobs:
 
     steps: # Os passos a serem executados dentro do job
       - name: Dizer Olá ao DevSecOps # Nome descritivo do passo
-        run: echo "Olá, DevSecOps! Meu primeiro workflow está funcionando!" # Comando a ser executado
+        run: echo "Olá novamente, DevSecOps! Meu primeiro workflow está funcionando!" # Comando a ser executado
