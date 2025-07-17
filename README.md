@@ -11,6 +11,7 @@ Este repositório serve como um projeto de aprendizado prático para configurar 
 * Criar um workflow básico no GitHub Actions para automação.
 * Integrar uma ferramenta de análise de segurança estática (SAST) no pipeline.
 * Aprender a depurar erros comuns em workflows de GitHub Actions.
+* Verificação de Vulnerabilidades em Dependências (SCA - Software Composition Analysis) com Dependabot.
 
 ## Tecnologias Utilizadas
 
@@ -21,10 +22,11 @@ Este repositório serve como um projeto de aprendizado prático para configurar 
 * **Git:** Sistema de controle de versão.
 * **CodeQL:** Ferramenta de análise de segurança estática (SAST) do GitHub.
 * **YAML:** Linguagem de serialização de dados para configuração de workflows.
+* **Dependabot:** Ferramenta nativa do GitHub para análise de dependências (SCA).
 
-## Passos Realizados (Jornada de Configuração)
+## Passos Realizados:
 
-A seguir, detalhamos os principais passos e desafios superados na configuração deste pipeline:
+O principais passos e desafios superados na configuração deste pipeline:
 
 ### 1. Configuração do Ambiente Local
 
@@ -74,7 +76,7 @@ Para garantir a segurança das dependências de terceiros utilizadas no projeto,
 
 ### Como funciona:
 
-* O Dependabot monitora o arquivo `package.json` (e outros arquivos de manifesto, se existissem) em busca de dependências do projeto.
+* O Dependabot monitora o arquivo `package.json` (e outros arquivos de manifesto) em busca de dependências do projeto.
 * Automaticamente, ele verifica se há vulnerabilidades conhecidas em qualquer versão das dependências listadas.
 * Ao detectar uma vulnerabilidade (como as encontradas no pacote `lodash` na versão `4.17.15`), o Dependabot gera um **alerta de segurança** na aba `Security` do repositório.
 * Além disso, ele cria **Pull Requests (PRs)** automaticamente, propondo a atualização das dependências para versões seguras que corrigem as vulnerabilidades.
@@ -86,7 +88,7 @@ Com a adição intencional de uma dependência vulnerável (`lodash@4.17.15`), o
 
 Isso demonstra a capacidade do pipeline em identificar e auxiliar na remediação automatizada de vulnerabilidades em dependências.
 
-O Dependabot alerts e Code scanning nas configurações de segurança do repositório, instruiu o GitHub a começar a escanear e a reportar vulnerabilidades.
+O Dependabot alerts e Code scanning nas configurações de segurança do repositório, instruiu o GitHub a começar a escanear e a reportar vulnerabilidades por e-mail.
 ![alerta-dependabot](https://github.com/user-attachments/assets/3b4ea29b-8aed-4674-9a9a-206d64f877ca)
 
 
